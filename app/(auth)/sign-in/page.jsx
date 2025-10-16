@@ -4,7 +4,7 @@ import { signIn } from 'next-auth/react';
 
 export default function SignInPage() {
   async function handleGoogle() {
-    await signIn('google', { callbackUrl: '/dashboard' });
+    await signIn('google',{ callbackUrl: '/dashboard' });
   }
 
   async function handleLogin(e) {
@@ -12,7 +12,7 @@ export default function SignInPage() {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    await signIn('credentials', { email, password, callbackUrl: '/dashboard' });
+    await signIn('credentials');
   }
 
   return (

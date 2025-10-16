@@ -253,7 +253,7 @@ export default function TodosPage() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow"
           >
             <Plus className="w-4 h-4" />
-            Add Todo
+            + Add Todo
           </button>
         </div>
       </div>
