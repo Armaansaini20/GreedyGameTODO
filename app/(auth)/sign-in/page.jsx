@@ -4,7 +4,9 @@ import { signIn } from 'next-auth/react';
 
 export default function SignInPage() {
   async function handleGoogle() {
-    await signIn('google',{ callbackUrl: '/dashboard' });
+    const result = await signIn('google');
+
+    console.log("✅ Google sign-in response:", result);
   }
 
   async function handleLogin(e) {
