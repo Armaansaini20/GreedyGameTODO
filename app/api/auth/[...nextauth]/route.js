@@ -54,14 +54,19 @@ export const authOptions = {
       },
       async authorize(credentials) {
         try {
-          if (!credentials?.email || !credentials?.password) return null;
+          if (!credentials?.email || !credentials?.password) {
+            console.log("no creds found");
+            return null;
+          }
 
           // Note: your Prisma schema stores the hashed password in `password`
           const user = await prisma.user.findUnique({
             where: { email: credentials.email },
           });
-          if (!user || !user.password) return null;
-
+          if (!user || !user.password) {
+            console.log("no user found");
+            return null;
+          }
           const valid = await bcrypt.compare(credentials.password, user.password);
           if (!valid) return null;
 
